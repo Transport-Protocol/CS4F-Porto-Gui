@@ -22,6 +22,7 @@ import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp'; // Import for the logout icon
 import { AuthContext } from '../login/AuthContext'; // Importiere den AuthContext
+import { LanguageContext } from '../context/LanguageContext'; // Importiere den LanguageContext
 
 
 const translations = {
@@ -55,7 +56,8 @@ const MenuBar = ({ userRole }) => {
     const { logout } = useContext(AuthContext);  // Hole die logout-Funktion aus dem Kontext
     const navigate = useNavigate();
     const [drawerOpen, setDrawerOpen] = useState(false);
-    const [language, setLanguage] = useState('en');
+    const { language, setLanguage } = useContext(LanguageContext); // Verwende den LanguageContext
+
     const [anchorEl, setAnchorEl] = useState(null);
     const [openMenu, setOpenMenu] = useState(null);
     const [openDashboard, setOpenDashboard] = useState(false);
