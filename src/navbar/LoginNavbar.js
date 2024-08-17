@@ -20,7 +20,7 @@ const translations = {
         login: 'Login',
     },
     de: {
-        login: 'Login',
+        login: 'Anmelden',
     },
 };
 
