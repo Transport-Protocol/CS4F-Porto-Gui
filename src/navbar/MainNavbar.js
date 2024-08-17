@@ -29,7 +29,7 @@ const translations = {
     en: {
         dashboard: 'Dashboard',
         transactions: 'Transactions',
-        certificates: 'Certificates',
+        cs4f_certificates: 'Certificates',
         overview: 'Overview',
         details: 'Details',
         newTransaction: 'New Transaction',
@@ -41,7 +41,7 @@ const translations = {
     de: {
         dashboard: 'Dashboard',
         transactions: 'Transaktionen',
-        certificates: 'Zertifikate',
+        cs4f_certificates: 'Zertifikate',
         overview: 'Übersicht',
         details: 'Details',
         newTransaction: 'Neue Transaktion',
@@ -238,7 +238,7 @@ const MenuBar = ({ userRole }) => {
                                     sx={{ color: 'white', fontWeight: 'bold', marginRight: 2 }}
                                     onMouseOver={(event) => handleMouseOver(event, 'certificates')}
                                 >
-                                    <span>{t.certificates}</span>
+                                    <span>{t.cs4f_certificates}</span>
                                 </Button>
 
                                 {renderMenu('certificates', [t.viewCertificates, t.requestNew])}
