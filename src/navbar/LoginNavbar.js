@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useContext, useState} from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
@@ -7,26 +7,20 @@ import Typography from '@mui/material/Typography';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
 import Box from '@mui/material/Box';
 import Select from '@mui/material/Select';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from "@mui/material/MenuItem";
+import { LanguageContext } from '../context/LanguageContext'; // Importiere den LanguageContext
 
-const translations = {
-    en: {
-        login: 'Login',
-    },
-    de: {
-        login: 'Anmelden',
-    },
-};
+
 
 const LoginMenuBar = () => {
     const [drawerOpen, setDrawerOpen] = useState(false);
-    const [language, setLanguage] = useState('en');
+    const { language, setLanguage } = useContext(LanguageContext); // Verwende den LanguageContext
+
 
     const handleDrawerToggle = () => {
         setDrawerOpen(!drawerOpen);
@@ -35,8 +29,6 @@ const LoginMenuBar = () => {
     const handleLanguageChange = (event) => {
         setLanguage(event.target.value);
     };
-
-    const t = translations[language];
 
     const mobileMenu = (
         <Drawer anchor="left" open={drawerOpen} onClose={handleDrawerToggle}>
