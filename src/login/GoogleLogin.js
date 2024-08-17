@@ -48,5 +48,5 @@ export const GoogleLogin = () => {
         }
     }, [login, navigate]);
 
-    return <button onClick={handleLogin}>Login with Google</button>;
+    return <div> <br/> <button onClick={handleLogin}>Login with Google</button> </div>
 };

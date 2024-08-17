@@ -1,0 +1,53 @@
+.user_master_data_show {
+    width: 100%;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+}
+
+.user_master_data_show table {
+    width: 100%; /* Tabelle auf volle Breite setzen */
+    border: 1px solid #ddd; /* Rahmen für die gesamte Tabelle */
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.user_master_data_show th, .user_master_data_show td {
+    padding: 12px 15px;
+    border: 1px solid #ddd; /* Zellenrahmen */
+    text-align: left;
+    color: #4a4a4a; /* Dunkelgraue Schriftfarbe */
+}
+
+.user_master_data_show th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+    color: #333; /* Dunklere Schriftfarbe für Header */
+}
+
+.user_master_data_show tr:nth-child(even) {
+    background-color: #f9f9f9; /* Wechselnde Hintergrundfarbe für Zeilen */
+}
+
+.user_master_data_show tr:nth-child(odd) {
+    background-color: #fff; /* Weiße Hintergrundfarbe für ungerade Zeilen */
+}
+
+.user_master_data_show tr:hover {
+    background-color: #f1f1f1; /* Hover-Effekt */
+}
+
+.user_master_data_show p {
+    text-align: center;
+    color: #888;
+    font-style: italic;
+    padding: 20px 0;
+}
+
+/* Titel über der Tabelle */
+.user_master_data_show_title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+    color: #333;
+}
