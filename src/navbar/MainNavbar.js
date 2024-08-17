@@ -129,46 +129,46 @@ const MenuBar = ({ userRole }) => {
     const mobileMenu = (
         <Drawer anchor="left" open={drawerOpen} onClose={handleDrawerToggle}>
             <List sx={{ width: 250, backgroundColor: '#005A9C', color: '#FFFFFF', height: '100%' }}>
-                <ListItem button onClick={handleToggleDashboard}>
+                <ListItem component="button" onClick={handleToggleDashboard}>
                     <ListItemText primary={t.dashboard} />
                     {openDashboard ? <ExpandLess /> : <ExpandMore />}
                 </ListItem>
                 <Collapse in={openDashboard} timeout="auto" unmountOnExit>
                     <List component="div" disablePadding>
-                        <ListItem button sx={{ pl: 4 }}>
+                        <ListItem component="button" sx={{ pl: 4 }}>
                             <ListItemText primary={t.overview} />
                         </ListItem>
-                        <ListItem button sx={{ pl: 4 }}>
+                        <ListItem component="button" sx={{ pl: 4 }}>
                             <ListItemText primary={t.details} />
                         </ListItem>
                     </List>
                 </Collapse>
 
-                <ListItem button onClick={handleToggleTransactions}>
+                <ListItem component="button" onClick={handleToggleTransactions}>
                     <ListItemText primary={t.transactions} />
                     {openTransactions ? <ExpandLess /> : <ExpandMore />}
                 </ListItem>
                 <Collapse in={openTransactions} timeout="auto" unmountOnExit>
                     <List component="div" disablePadding>
-                        <ListItem button sx={{ pl: 4 }}>
+                        <ListItem component="button" sx={{ pl: 4 }}>
                             <ListItemText primary={t.newTransaction} />
                         </ListItem>
-                        <ListItem button sx={{ pl: 4 }}>
+                        <ListItem component="button" sx={{ pl: 4 }}>
                             <ListItemText primary={t.history} />
                         </ListItem>
                     </List>
                 </Collapse>
 
-                <ListItem button onClick={handleToggleCertificates}>
+                <ListItem component="button" onClick={handleToggleCertificates}>
                     <ListItemText primary={t.certificates} />
                     {openCertificates ? <ExpandLess /> : <ExpandMore />}
                 </ListItem>
                 <Collapse in={openCertificates} timeout="auto" unmountOnExit>
                     <List component="div" disablePadding>
-                        <ListItem button sx={{ pl: 4 }}>
+                        <ListItem component="button" sx={{ pl: 4 }}>
                             <ListItemText primary={t.viewCertificates} />
                         </ListItem>
-                        <ListItem button sx={{ pl: 4 }}>
+                        <ListItem component="button" sx={{ pl: 4 }}>
                             <ListItemText primary={t.requestNew} />
                         </ListItem>
                     </List>
@@ -191,7 +191,7 @@ const MenuBar = ({ userRole }) => {
                 </ListItem>
 
                 <Divider />
-                <ListItem button onClick={handleLogout}>
+                <ListItem component="button" onClick={handleLogout}>
                     <ExitToAppIcon sx={{ color: 'white', marginRight: 1 }} />
                     <ListItemText primary={t.logout} />
                 </ListItem>
@@ -238,8 +238,9 @@ const MenuBar = ({ userRole }) => {
                                     sx={{ color: 'white', fontWeight: 'bold', marginRight: 2 }}
                                     onMouseOver={(event) => handleMouseOver(event, 'certificates')}
                                 >
-                                    {t.certificates}
+                                    <span>{t.certificates}</span>
                                 </Button>
+
                                 {renderMenu('certificates', [t.viewCertificates, t.requestNew])}
                             </>
                         )}
