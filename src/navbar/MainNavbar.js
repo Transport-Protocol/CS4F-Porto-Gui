@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, {useContext, useState} from 'react';
+import { useNavigate } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
@@ -20,6 +21,8 @@ import Select from '@mui/material/Select';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp'; // Import for the logout icon
+import { AuthContext } from '../login/AuthContext'; // Importiere den AuthContext
+
 
 const translations = {
     en: {
@@ -49,6 +52,8 @@ const translations = {
 };
 
 const MenuBar = ({ userRole }) => {
+    const { logout } = useContext(AuthContext);  // Hole die logout-Funktion aus dem Kontext
+    const navigate = useNavigate();
     const [drawerOpen, setDrawerOpen] = useState(false);
     const [language, setLanguage] = useState('en');
     const [anchorEl, setAnchorEl] = useState(null);
@@ -89,7 +94,9 @@ const MenuBar = ({ userRole }) => {
 
     const handleLogout = () => {
         // Implement logout logic here
+        logout();  // Rufe die logout-Funktion auf, um den Benutzer abzumelden
         console.log('User logged out');
+        navigate('/login');
     };
 
     const t = translations[language];

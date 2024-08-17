@@ -4,7 +4,6 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -14,8 +13,7 @@ import Box from '@mui/material/Box';
 import Select from '@mui/material/Select';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
-import LoginToAppIcon from '@mui/icons-material/Login';
-import MenuItem from "@mui/material/MenuItem"; // Import for the login icon (can represent entering)
+import MenuItem from "@mui/material/MenuItem";
 
 const translations = {
     en: {
@@ -38,20 +36,11 @@ const LoginMenuBar = () => {
         setLanguage(event.target.value);
     };
 
-    const handleLogin = () => {
-        // Implement login logic here
-        console.log('User clicked login');
-    };
-
     const t = translations[language];
 
     const mobileMenu = (
         <Drawer anchor="left" open={drawerOpen} onClose={handleDrawerToggle}>
             <List sx={{ width: 250, backgroundColor: '#005A9C', color: '#FFFFFF', height: '100%' }}>
-                <ListItem button onClick={handleLogin}>
-                    <LoginToAppIcon sx={{ color: 'white', marginRight: 1 }} />
-                    <ListItemText primary={t.login} />
-                </ListItem>
                 <Divider />
                 <ListItem>
                     <FormControl variant="standard" sx={{ minWidth: 120 }}>
@@ -78,15 +67,8 @@ const LoginMenuBar = () => {
                     <Typography variant="h6" sx={{ color: 'white' }}>
                         CS4F-Porto
                     </Typography>
-                    <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'flex' } }}>
-                        <Button
-                            sx={{ color: 'white', fontWeight: 'bold', marginLeft: 'auto' }}
-                            onClick={handleLogin}
-                            startIcon={<LoginToAppIcon />} // Use an icon representing login or entry
-                        >
-
-                        </Button>
-                    </Box>
+                    <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'flex' }}}
+                    />
                     <Box sx={{ display: { xs: 'none', sm: 'flex' }, alignItems: 'center', gap: 2 }}>
                         <FormControl variant="standard" sx={{ minWidth: 80 }}>
                             <InputLabel sx={{ color: 'white' }}>Language</InputLabel>

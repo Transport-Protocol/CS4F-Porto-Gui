@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AuthProvider, AuthContext } from './login/AuthContext';
 import { GoogleLogin } from './login/GoogleLogin';
@@ -19,34 +19,31 @@ function App() {
 
 const AppContent = () => {
     const { user } = useContext(AuthContext);
-    const [language, setLanguage] = useState('en');
-    const userRole = 'admin';
-
-    const handleLanguageChange = (newLanguage) => {
-        setLanguage(newLanguage);
-    };
+    const userRole = 'admin'; // TODO userRole should be a database thing
 
     return (
         <div className="App">
-            <div className="App-navbar">
-                {user ? (
-                    <MainNavbar userRole={userRole} /> // Zeige MainNavbar wenn eingeloggt
-                ) : (
-                    <LoginNavbar /> // Zeige LoginNavbar wenn nicht eingeloggt
-                )}
-            </div>
+            <Router>
+                <div className="App-navbar">
+                    {user ? (
+                        <MainNavbar userRole={userRole} /> // Zeige MainNavbar wenn eingeloggt
+                    ) : (
+                        <LoginNavbar /> // Zeige LoginNavbar wenn nicht eingeloggt
+                    )}
+                </div>
 
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <br/>
-                <Router>
-                    <Routes>
-                        <Route path="/login" element={<GoogleLogin />} />
-                        <Route path="/oauth2/callback" element={<OAuth2Callback />} />
-                        <Route path="/" element={<ProtectedRoute />} />
-                    </Routes>
-                </Router>
-            </header>
+                <header className="App-header">
+                    <img src={logo} className="App-logo" alt="logo" />
+                    <br/>
+
+                        <Routes>
+                            <Route path="/login" element={<GoogleLogin />} />
+                            <Route path="/oauth2/callback" element={<OAuth2Callback />} />
+                            <Route path="/" element={<ProtectedRoute />} />
+                        </Routes>
+
+                </header>
+            </Router>
         </div>
     );
 };
