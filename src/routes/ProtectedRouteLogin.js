@@ -19,12 +19,12 @@ const ProtectedComponent = () => {
     const t = translations[language];
 
     // Ersetze den Platzhalter {user} im Begrüßungstext durch den Benutzernamen
-    return <div>{t.welcome_text.replace('{user}', user?.name || 'Guest')}</div>;
+    return <div> <br/> {t.welcome_text.replace('{user}', user?.name || 'Guest')}</div>;
 };
 
-const ProtectedRoute = () => {
+const ProtectedRouteLogin = () => {
     const { user } = useContext(AuthContext);
     return user ? <ProtectedComponent /> : <Navigate to="/login" replace />;
 };
 
-export default ProtectedRoute;
+export default ProtectedRouteLogin;
