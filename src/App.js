@@ -11,7 +11,7 @@ import './App.css';
 
 // Protected Routes
 import ProtectedRouteLogin from "./routes/ProtectedRouteLogin";
-import ProtectedRouteUserMasterData from "./routes/ProtectedRouteUserMasterData";
+import ProtectedRouteUserTransactionRecord from "./routes/user/ProtectedRouteUserTransactionRecord";
 import ProtectedDefaultRoute from "./routes/ProtectedDefaultRoute";
 
 function App() {
@@ -43,7 +43,7 @@ const AppContent = () => {
 
             <header className="App-header">
                 {/* Logo nur anzeigen, wenn der Pfad nicht /user/master_data ist */}
-                {location.pathname !== '/user/master_data' && (
+                {location.pathname === '/login' && (
                     <img src={logo} className="App-logo" alt="logo"/>
                 )}
 
@@ -52,7 +52,7 @@ const AppContent = () => {
                     <Route path="/login" element={<GoogleLogin/>}/>
                     <Route path="/oauth2/callback" element={<OAuth2Callback/>}/>
                     <Route path="/" element={<ProtectedRouteLogin/>}/>
-                    <Route path="/user/master_data" element={<ProtectedRouteUserMasterData/>}/>
+                    <Route path="/user/transaction_records" element={<ProtectedRouteUserTransactionRecord/>}/>
 
                     {/* Default Route */}
                     <Route path="*" element={<ProtectedDefaultRoute />} />
