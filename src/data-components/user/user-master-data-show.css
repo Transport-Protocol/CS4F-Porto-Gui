@@ -19,11 +19,11 @@
 }
 
 .user_master_data_show th, .user_master_data_show td {
-    padding: 12px 15px; /* Leicht reduziert für eine kompaktere Optik */
+    padding: 12px 15px;
     border-bottom: 1px solid #555960;
     text-align: left;
     color: #d1d5db;
-    font-size: 0.875rem; /* Kleinere Schriftgröße (14px) */
+    font-size: 0.875rem;
 }
 
 .user_master_data_show th {
@@ -32,7 +32,7 @@
     color: #ffffff;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    font-size: 0.875rem; /* Kleinere Schriftgröße (14px) */
+    font-size: 0.875rem;
 }
 
 .user_master_data_show tr:nth-child(even) {
@@ -50,7 +50,7 @@
 
 .user_master_data_show_title {
     text-align: center;
-    font-size: 22px; /* Etwas kleinere Schriftgröße für den Titel */
+    font-size: 22px;
     font-weight: 700;
     margin-top: 20px;
     color: #61dafb;
@@ -59,4 +59,61 @@
     border-bottom: 2px solid #61dafb;
     padding-bottom: 10px;
     margin-bottom: 20px;
+}
+
+/* Optimierungen für Mobilgeräte */
+@media (max-width: 768px) {
+    .user_master_data_show {
+        width: 100%;
+        margin: 1rem auto;
+    }
+
+    .user_master_data_show th, .user_master_data_show td {
+        padding: 10px 12px; /* Reduziertes Padding für kleinere Bildschirme */
+        font-size: 0.8rem; /* Kleinere Schriftgröße für mobile Geräte */
+    }
+
+    .user_master_data_show_title {
+        font-size: 20px; /* Kleinere Schriftgröße für den Titel auf mobilen Geräten */
+    }
+}
+
+@media (max-width: 480px) {
+    .user_master_data_show table {
+        display: block;
+        overflow-x: auto; /* Horizontales Scrollen bei kleinen Bildschirmen */
+        white-space: nowrap; /* Zeilenumbruch in Zellen verhindern */
+    }
+
+    .user_master_data_show th, .user_master_data_show td {
+        display: block;
+        text-align: right; /* Text rechtsbündig für eine kompakte Darstellung */
+        padding: 10px 5px;
+        font-size: 0.8rem;
+        border-bottom: 1px solid #555960;
+    }
+
+    .user_master_data_show th {
+        text-align: left; /* Header linksbündig, um die Struktur zu verdeutlichen */
+    }
+
+    .user_master_data_show tr {
+        display: flex;
+        flex-direction: column;
+        border-bottom: 2px solid #333740;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+    }
+
+    .user_master_data_show tr:nth-child(odd), .user_master_data_show tr:nth-child(even) {
+        background-color: transparent;
+    }
+
+    .user_master_data_show td::before {
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        color: #61dafb;
+        text-transform: uppercase;
+    }
 }
