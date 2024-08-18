@@ -10,8 +10,8 @@ import logo from './material/cs4f-logo.png';
 import './App.css';
 
 // Protected Routes
-import ProtectedRouteLogin from "./routes/ProtectedRouteLogin";
-import ProtectedRouteUserTransactionRecord from "./routes/user/ProtectedRouteUserTransactionRecord";
+import ProtectedRouteLogin from "./routes/login/ProtectedRouteLogin";
+import ProtectedRouteUserTransactionRecord from "./routes/user/transaction_records/ProtectedRouteUserTransactionRecord";
 import ProtectedDefaultRoute from "./routes/ProtectedDefaultRoute";
 
 function App() {
