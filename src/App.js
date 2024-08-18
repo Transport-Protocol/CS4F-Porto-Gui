@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import { AuthProvider, AuthContext } from './login/AuthContext';
-import { LoginProvider } from './login/LoginProvider';
-import OAuth2Callback from './login/OAuth2Callback';
+import { AuthProvider, AuthContext } from './session/login/AuthContext';
+import { LoginProvider } from './session/login/LoginProvider';
+import OAuth2Callback from './session/login/OAuth2Callback';
 import MainNavbar from './navbar/MainNavbar';
 import LoginNavbar from "./navbar/LoginNavbar";
-import { LanguageProvider } from './context/LanguageContext';
+import { LanguageProvider } from './session/context/LanguageContext';
 import logo from './material/cs4f-logo.png';
 import './App.css';
 

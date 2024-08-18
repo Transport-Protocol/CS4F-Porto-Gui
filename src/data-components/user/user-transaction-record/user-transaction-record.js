@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import './user-transaction-record.css';  // CSS-Datei importieren
-import { fetchData } from '../../../cs4f-proto-core-api/core-api';
-import { LanguageContext } from '../../../context/LanguageContext';  // Annehmen, dass ein LanguageContext existiert
+import { fetchData } from '../../../connector/cs4f-proto-core-api/core-api';
+import { LanguageContext } from '../../../session/context/LanguageContext';  // Annehmen, dass ein LanguageContext existiert
 
 const UserTransactionRecords = () => {
     const [translations, setTranslations] = useState({});

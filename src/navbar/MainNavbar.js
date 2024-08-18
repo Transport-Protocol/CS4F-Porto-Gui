@@ -21,8 +21,8 @@ import Select from '@mui/material/Select';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp'; // Import for the logout icon
-import { AuthContext } from '../login/AuthContext'; // Importiere den AuthContext
-import { LanguageContext } from '../context/LanguageContext'; // Importiere den LanguageContext
+import { AuthContext } from '../session/login/AuthContext'; // Importiere den AuthContext
+import { LanguageContext } from '../session/context/LanguageContext'; // Importiere den LanguageContext
 
 
 const translations = {
