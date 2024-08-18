@@ -6,7 +6,7 @@ import OAuth2Callback from './session/login/OAuth2Callback';
 import MainNavbar from './navbar/MainNavbar';
 import LoginNavbar from "./navbar/LoginNavbar";
 import { LanguageProvider } from './session/context/LanguageContext';
-import logo from './material/cs4f-logo.png';
+import logo from './_assets/cs4f-logo.png';
 import './App.css';
 
 // Protected Routes
