@@ -14,12 +14,12 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4  # Sicherstellen, dass die neueste Version verwendet wird
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4  # Sicherstellen, dass die neueste Version verwendet wird
         with:
-          node-version: '16'  # Stelle sicher, dass die Node.js-Version zu deiner React-App passt
+          node-version: '20'  # Verwende explizit Node.js Version 20
 
       - name: Install dependencies
         run: npm install
