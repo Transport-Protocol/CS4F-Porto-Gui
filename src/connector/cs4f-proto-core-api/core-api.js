@@ -1,8 +1,20 @@
 // api.js
+import SecureService from "./core-security";
+
 export const fetchData = async () => {
     try {
-        // const response = await fetch('https://api.example.com/data');
-        // const data = await response.json();
+        // const [data, setData] = useState(null);
+        //
+        // useEffect(() => {
+        //     // Ressourcenpfad als Parameter
+        //     SecureService.getSecureData('secure-data')
+        //         .then(data => {
+        //             setData(data);
+        //         })
+        //         .catch(error => {
+        //             console.error('Failed to fetch data:', error);
+        //         });
+        // }, []);
 
         const translations = {
             matrikelnummer: {
