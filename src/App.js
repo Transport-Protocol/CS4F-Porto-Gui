@@ -12,6 +12,7 @@ import './App.css';
 // Protected Routes
 import ProtectedRouteLogin from "./routes/ProtectedRouteLogin";
 import ProtectedRouteUserMasterData from "./routes/ProtectedRouteUserMasterData";
+import ProtectedDefaultRoute from "./routes/ProtectedDefaultRoute";
 
 function App() {
     return (
@@ -52,6 +53,9 @@ const AppContent = () => {
                     <Route path="/oauth2/callback" element={<OAuth2Callback/>}/>
                     <Route path="/" element={<ProtectedRouteLogin/>}/>
                     <Route path="/user/master_data" element={<ProtectedRouteUserMasterData/>}/>
+
+                    {/* Default Route */}
+                    <Route path="*" element={<ProtectedDefaultRoute />} />
                 </Routes>
             </header>
         </div>
