@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import { Navigate } from 'react-router-dom';
-import { AuthContext } from '../login/AuthContext';
-import { LanguageContext } from '../context/LanguageContext';
-import UserMasterSet from '../data-components/user/user-master-data-show';  // Schreibfehler korrigiert
+import { AuthContext } from '../../login/AuthContext';
+import { LanguageContext } from '../../context/LanguageContext';
+import UserTransactionRecords from '../../data-components/user/user-transaction-record';  // Schreibfehler korrigiert
 
 const translations = {
     de: {
@@ -18,12 +18,12 @@ const ProtectedComponent = () => {
     console.log("Render User Master Data Set" + translations[language].master_data_set);
     return (
         <div>
-            <UserMasterSet />  {/* Korrigierter Verweis auf die Komponente */}
+            <UserTransactionRecords />  {/* Korrigierter Verweis auf die Komponente */}
         </div>
     );
 };
 
-const ProtectedRouteUserMasterData = () => {
+const ProtectedRouteUserTransactionRecord = () => {
     const { user } = useContext(AuthContext);
     console.log('Current user:', user);
     if (user === null) {
@@ -33,4 +33,4 @@ const ProtectedRouteUserMasterData = () => {
     return user ? <ProtectedComponent /> : <Navigate to="/login" replace />;  // Anpassen der Umleitung
 };
 
-export default ProtectedRouteUserMasterData;
+export default ProtectedRouteUserTransactionRecord;

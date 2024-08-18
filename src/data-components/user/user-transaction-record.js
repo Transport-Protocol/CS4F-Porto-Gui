@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useContext } from 'react';
-import './user-master-data-show.css';  // CSS-Datei importieren
+import './user-transaction-record.css';  // CSS-Datei importieren
 import { fetchData } from '../../cs4f-proto-core-api/core-api';
 import { LanguageContext } from '../../context/LanguageContext';  // Annehmen, dass ein LanguageContext existiert
 
-const UserMasterDataSet = () => {
+const UserTransactionRecords = () => {
     const [translations, setTranslations] = useState({});
     const [data, setData] = useState([]);
     const { language } = useContext(LanguageContext);  // Sprache aus dem Kontext holen
@@ -48,7 +48,7 @@ const UserMasterDataSet = () => {
     return (
         <div className="user_master_data_show">
             <div className="user_master_data_show_title">
-                {language === 'de' ? 'Studierenden Stammdaten' : 'Student Master Data'}
+                {language === 'de' ? 'Transaktionen' : 'Transaction records'}
             </div>
             <table>
                 <thead>
@@ -62,4 +62,4 @@ const UserMasterDataSet = () => {
     );
 };
 
-export default UserMasterDataSet;
+export default UserTransactionRecords;
