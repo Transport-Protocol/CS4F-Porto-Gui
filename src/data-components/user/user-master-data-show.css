@@ -1,5 +1,5 @@
 .user_master_data_show {
-    width: 90%;
+    width: 100%;
     max-width: 1200px;
     margin: 2rem auto;
     font-family: 'Roboto', sans-serif;
@@ -8,7 +8,7 @@
     background-color: #333740;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    overflow: hidden;
+    overflow-x: auto; /* Ermöglicht horizontales Scrollen bei Überbreite */
 }
 
 .user_master_data_show table {
@@ -66,54 +66,76 @@
     .user_master_data_show {
         width: 100%;
         margin: 1rem auto;
+        overflow-x: auto; /* Sicherstellen, dass horizontales Scrollen aktiviert ist */
     }
 
     .user_master_data_show th, .user_master_data_show td {
-        padding: 10px 12px; /* Reduziertes Padding für kleinere Bildschirme */
-        font-size: 0.8rem; /* Kleinere Schriftgröße für mobile Geräte */
+        padding: 10px 12px;
+        font-size: 0.8rem;
     }
 
     .user_master_data_show_title {
-        font-size: 20px; /* Kleinere Schriftgröße für den Titel auf mobilen Geräten */
+        font-size: 20px;
     }
 }
 
+/* Responsive Stacking bei sehr kleinen Bildschirmen */
 @media (max-width: 480px) {
     .user_master_data_show table {
-        display: block;
-        overflow-x: auto; /* Horizontales Scrollen bei kleinen Bildschirmen */
-        white-space: nowrap; /* Zeilenumbruch in Zellen verhindern */
+        width: 100%; /* Sicherstellen, dass die Tabelle 100% der Breite nutzt */
+        display: table; /* Statt block, table behalten, um volle Breite zu nutzen */
+        table-layout: fixed; /* Zwingt die Tabelle, die gesamte Breite zu verwenden */
     }
 
     .user_master_data_show th, .user_master_data_show td {
         display: block;
-        text-align: right; /* Text rechtsbündig für eine kompakte Darstellung */
-        padding: 10px 5px;
-        font-size: 0.8rem;
+        width: 100%; /* Zellen nehmen die volle Breite ein */
+        box-sizing: border-box;
+        text-align: left;
+        padding: 10px 15px;
         border-bottom: 1px solid #555960;
+        position: relative;
+        white-space: nowrap; /* Verhindert, dass der Text umbricht */
     }
 
     .user_master_data_show th {
-        text-align: left; /* Header linksbündig, um die Struktur zu verdeutlichen */
-    }
-
-    .user_master_data_show tr {
-        display: flex;
-        flex-direction: column;
-        border-bottom: 2px solid #333740;
-        margin-bottom: 10px;
-        padding-bottom: 10px;
-    }
-
-    .user_master_data_show tr:nth-child(odd), .user_master_data_show tr:nth-child(even) {
-        background-color: transparent;
+        text-align: left;
+        background-color: #333740;
     }
 
     .user_master_data_show td::before {
         content: attr(data-label);
-        float: left;
+        position: absolute;
+        left: 15px;
+        width: calc(100% - 30px);
+        text-align: left;
         font-weight: bold;
         color: #61dafb;
         text-transform: uppercase;
+        padding-right: 10px;
+    }
+
+    .user_master_data_show td {
+        padding-left: 15px; /* Kein Versatz mehr, um die volle Breite zu nutzen */
+        padding-right: 15px; /* Sicherstellen, dass auch rechts genug Platz ist */
+        text-align: left;
+        border-bottom: 1px solid #555960;
+    }
+
+    .user_master_data_show tr {
+        display: flex;
+        flex-wrap: wrap; /* Zellen innerhalb der Zeilen umbrechen */
+        margin-bottom: 15px;
+        width: 100%; /* Sicherstellen, dass jede Zeile die volle Breite nutzt */
+    }
+
+    .user_master_data_show tr:nth-child(odd), .user_master_data_show tr:nth-child(even) {
+        background-color: #444950;
+    }
+
+    .user_master_data_show td:first-child {
+        background-color: #3c4048;
+        font-weight: bold;
+        color: #ffffff;
     }
 }
