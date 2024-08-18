@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { AuthProvider, AuthContext } from './login/AuthContext';
-import { GoogleLogin } from './login/GoogleLogin';
+import { LoginProvider } from './login/LoginProvider';
 import OAuth2Callback from './login/OAuth2Callback';
 import MainNavbar from './navbar/MainNavbar';
 import LoginNavbar from "./navbar/LoginNavbar";
@@ -49,9 +49,13 @@ const AppContent = () => {
 
                 {/* Routes definieren */}
                 <Routes>
-                    <Route path="/login" element={<GoogleLogin/>}/>
-                    <Route path="/oauth2/callback" element={<OAuth2Callback/>}/>
                     <Route path="/" element={<ProtectedRouteLogin/>}/>
+
+                    {/* Routes for /login */}
+                    <Route path="/login" element={<LoginProvider/>}/>
+                    <Route path="/oauth2/callback" element={<OAuth2Callback/>}/>
+
+                    {/* (Protected) Routes for /user */}
                     <Route path="/user/transaction_records" element={<ProtectedRouteUserTransactionRecord/>}/>
 
                     {/* Default Route */}

@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 const CLIENT_ID = '338927639565-c4hmo0pi1vqvqkot1cl8hk90vhga07br.apps.googleusercontent.com';
 const REDIRECT_URI = 'http://localhost:3000/oauth2/callback';
 
-export const GoogleLogin = () => {
+export const LoginProvider = () => {
     const { login } = useContext(AuthContext);
     const navigate = useNavigate();
 
