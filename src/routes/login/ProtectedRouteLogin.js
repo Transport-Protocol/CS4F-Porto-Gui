@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Navigate } from 'react-router-dom';
-import { AuthContext } from '../../login/AuthContext';
-import { LanguageContext } from '../../context/LanguageContext';  // Importiere den LanguageContext
+import { AuthContext } from '../../session/login/AuthContext';
+import { LanguageContext } from '../../session/context/LanguageContext';  // Importiere den LanguageContext
 
 const translations = {
     de: {

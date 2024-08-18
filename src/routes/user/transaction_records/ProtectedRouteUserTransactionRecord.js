@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Navigate } from 'react-router-dom';
-import { AuthContext } from '../../../login/AuthContext';
-import { LanguageContext } from '../../../context/LanguageContext';
+import { AuthContext } from '../../../session/login/AuthContext';
+import { LanguageContext } from '../../../session/context/LanguageContext';
 import UserTransactionRecords from '../../../data-components/user/user-transaction-record/user-transaction-record';  // Schreibfehler korrigiert
 
 const translations = {
