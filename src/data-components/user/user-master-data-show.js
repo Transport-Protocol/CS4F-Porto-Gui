@@ -1,16 +1,19 @@
-import React, { useEffect, useState } from 'react';
-import { fetchData } from '../../cs4f-proto-core-api/core-api';
+import React, { useEffect, useState, useContext } from 'react';
 import './user-master-data-show.css';  // CSS-Datei importieren
+import { fetchData } from '../../cs4f-proto-core-api/core-api';
+import { LanguageContext } from '../../context/LanguageContext';  // Annehmen, dass ein LanguageContext existiert
 
 const UserMasterDataSet = () => {
-    const [data, setData] = useState(null);
-    console.log("UserMasterDataSet");
+    const [translations, setTranslations] = useState({});
+    const [data, setData] = useState([]);
+    const { language } = useContext(LanguageContext);  // Sprache aus dem Kontext holen
 
     useEffect(() => {
         const getData = async () => {
             try {
-                const fetchedData = await fetchData();
-                setData(fetchedData);
+                const { translations, data } = await fetchData();
+                setTranslations(translations);
+                setData(data);
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
@@ -19,21 +22,19 @@ const UserMasterDataSet = () => {
         getData();
     }, []);
 
-    // Funktion, um den Header basierend auf den Daten zu erstellen
     const renderTableHeader = () => {
         if (!data || data.length === 0) return null;
 
-        const headers = Object.keys(data[0]);  // Nimmt die Schlüssel des ersten Objekts als Header
+        const headers = Object.keys(data[0]);  // Nutzt die Schlüssel des ersten Objekts als Header
         return (
             <tr>
                 {headers.map((key, index) => (
-                    <th key={index}>{key}</th>
-                ))}
+                    <th key={index}>{translations[key][language]}</th>
+                    ))}
             </tr>
         );
     };
 
-    // Funktion, um die Tabellenzeilen basierend auf den Daten zu erstellen
     const renderTableData = () => {
         return data.map((item, index) => (
             <tr key={index}>
@@ -46,18 +47,17 @@ const UserMasterDataSet = () => {
 
     return (
         <div className="user_master_data_show">
-            {data ? (
-                <table>
-                    <thead>
-                    {renderTableHeader()}
-                    </thead>
-                    <tbody>
-                    {renderTableData()}
-                    </tbody>
-                </table>
-            ) : (
-                <p>Loading data...</p>
-            )}
+            <div className="user_master_data_show_title">
+                {language === 'de' ? 'Studierenden Stammdaten' : 'Student Master Data'}
+            </div>
+            <table>
+                <thead>
+                {renderTableHeader()}
+                </thead>
+                <tbody>
+                {renderTableData()}
+                </tbody>
+            </table>
         </div>
     );
 };

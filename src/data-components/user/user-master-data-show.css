@@ -1,53 +1,62 @@
 .user_master_data_show {
-    width: 100%;
-    margin: 0 auto;
-    font-family: Arial, sans-serif;
+    width: 90%;
+    max-width: 1200px;
+    margin: 2rem auto;
+    font-family: 'Roboto', sans-serif;
+    color: #ffffff;
+    text-align: left;
+    background-color: #333740;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
 }
 
 .user_master_data_show table {
-    width: 100%; /* Tabelle auf volle Breite setzen */
-    border: 1px solid #ddd; /* Rahmen für die gesamte Tabelle */
+    width: 100%;
     border-collapse: collapse;
-    margin-top: 20px;
+    margin-top: 0;
+    background-color: #444950;
 }
 
 .user_master_data_show th, .user_master_data_show td {
-    padding: 12px 15px;
-    border: 1px solid #ddd; /* Zellenrahmen */
+    padding: 12px 15px; /* Leicht reduziert für eine kompaktere Optik */
+    border-bottom: 1px solid #555960;
     text-align: left;
-    color: #4a4a4a; /* Dunkelgraue Schriftfarbe */
+    color: #d1d5db;
+    font-size: 0.875rem; /* Kleinere Schriftgröße (14px) */
 }
 
 .user_master_data_show th {
-    background-color: #f4f4f4;
-    font-weight: bold;
-    color: #333; /* Dunklere Schriftfarbe für Header */
+    background-color: #3c4048;
+    font-weight: 600;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.875rem; /* Kleinere Schriftgröße (14px) */
 }
 
 .user_master_data_show tr:nth-child(even) {
-    background-color: #f9f9f9; /* Wechselnde Hintergrundfarbe für Zeilen */
+    background-color: #3a3e45;
 }
 
 .user_master_data_show tr:nth-child(odd) {
-    background-color: #fff; /* Weiße Hintergrundfarbe für ungerade Zeilen */
+    background-color: #444950;
 }
 
 .user_master_data_show tr:hover {
-    background-color: #f1f1f1; /* Hover-Effekt */
+    background-color: #575d66;
+    transition: background-color 0.3s ease;
 }
 
-.user_master_data_show p {
-    text-align: center;
-    color: #888;
-    font-style: italic;
-    padding: 20px 0;
-}
-
-/* Titel über der Tabelle */
 .user_master_data_show_title {
     text-align: center;
-    font-size: 24px;
-    font-weight: bold;
+    font-size: 22px; /* Etwas kleinere Schriftgröße für den Titel */
+    font-weight: 700;
     margin-top: 20px;
-    color: #333;
+    color: #61dafb;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-bottom: 2px solid #61dafb;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
 }
