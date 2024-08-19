@@ -24,7 +24,6 @@ import ExitToAppIcon from '@mui/icons-material/ExitToApp'; // Import for the log
 import { AuthContext } from '../session/login/AuthContext'; // Importiere den AuthContext
 import { LanguageContext } from '../session/context/LanguageContext'; // Importiere den LanguageContext
 
-
 const uri = {
     root: '/',
     login: '/login',
