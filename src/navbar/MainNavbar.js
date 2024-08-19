@@ -24,6 +24,16 @@ import ExitToAppIcon from '@mui/icons-material/ExitToApp'; // Import for the log
 import { AuthContext } from '../session/login/AuthContext'; // Importiere den AuthContext
 import { LanguageContext } from '../session/context/LanguageContext'; // Importiere den LanguageContext
 
+const uri = {
+    root: '/',
+    login: '/login',
+    overview: '/user/overview',
+    details: '/user/details',
+    newTransaction: '/user/new-transaction',
+    history: '/user/transaction_records',
+    viewCertificates: '/user/certificates',
+    requestNew: '/user/new_certificates',
+}
 
 const translations = {
     en: {
@@ -98,10 +108,15 @@ const MenuBar = ({ userRole }) => {
         // Implement logout logic here
         logout();  // Rufe die logout-Funktion auf, um den Benutzer abzumelden
         console.log('User logged out');
-        navigate('/login');
+        navigate(uri.login);
+    };
+
+    const handleNavigation = (path) => {
+        navigate(path);
     };
 
     const t = translations[language];
+
 
     const renderMenu = (menuName, items) => (
         <Menu
@@ -112,13 +127,15 @@ const MenuBar = ({ userRole }) => {
                 onMouseLeave: handleMenuClose,
             }}
         >
-            {items.map((item, index) => (
-                <MenuItem key={index} onClick={handleMenuClose}>
-                    {item}
+            {items.map((item) => (
+                <MenuItem key={item.label} onClick={() => handleNavigation(item.path)}>
+                    {item.label}
                 </MenuItem>
             ))}
         </Menu>
     );
+
+
 
     const handleMouseOver = (event, menuName) => {
         if (openMenu !== menuName) {
@@ -153,7 +170,7 @@ const MenuBar = ({ userRole }) => {
                         <ListItem component="button" sx={{ pl: 4 }}>
                             <ListItemText primary={t.newTransaction} />
                         </ListItem>
-                        <ListItem component="button" sx={{ pl: 4 }}>
+                        <ListItem component="button"  onClick={() => handleNavigation(uri.history)} sx={{ pl: 4 }}>
                             <ListItemText primary={t.history} />
                         </ListItem>
                     </List>
@@ -224,24 +241,30 @@ const MenuBar = ({ userRole }) => {
                                 >
                                     {t.dashboard}
                                 </Button>
-                                {renderMenu('dashboard', [t.overview, t.details])}
-
+                                {renderMenu('dashboard', [
+                                    { label: t.overview, path: uri.overview },
+                                    { label: t.details, path: uri.details }
+                                ])}
                                 <Button
                                     sx={{ color: 'white', fontWeight: 'bold', marginRight: 2 }}
                                     onMouseOver={(event) => handleMouseOver(event, 'transactions')}
                                 >
                                     {t.transactions}
                                 </Button>
-                                {renderMenu('transactions', [t.newTransaction, t.history])}
-
+                                {renderMenu('transactions', [
+                                    { label: t.newTransaction, path: uri.newTransaction },
+                                    { label: t.history, path: uri.history }
+                                ])}
                                 <Button
                                     sx={{ color: 'white', fontWeight: 'bold', marginRight: 2 }}
                                     onMouseOver={(event) => handleMouseOver(event, 'certificates')}
                                 >
                                     <span>{t.cs4f_certificates}</span>
                                 </Button>
-
-                                {renderMenu('certificates', [t.viewCertificates, t.requestNew])}
+                                {renderMenu('certificates', [
+                                    { label: t.viewCertificates, path: uri.viewCertificates },
+                                    { label: t.requestNew, path: uri.requestNew }
+                                ])}
                             </>
                         )}
                         <Button
