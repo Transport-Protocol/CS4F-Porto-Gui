@@ -1,4 +1,5 @@
 # Getting Started 
+REMEMBER TO ADD .env with REACT_APP_GOOGLE_CLIENT_SECRET=.....
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

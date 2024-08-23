@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../cs4f-porto.iml" filepath="$PROJECT_DIR$/../cs4f-porto.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/CS4F-Porto-Gui.iml" filepath="$PROJECT_DIR$/.idea/CS4F-Porto-Gui.iml" />
     </modules>
   </component>
 </project>

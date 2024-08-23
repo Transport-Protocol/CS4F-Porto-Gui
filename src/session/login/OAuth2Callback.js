@@ -35,6 +35,7 @@ const OAuth2Callback = () => {
                 navigate('/'); // Nach erfolgreichem Login weiterleiten
             } catch (error) {
                 console.error('Login error:', error);
+                navigate('/login')
             }
         };
 
